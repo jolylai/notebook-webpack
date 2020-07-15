@@ -20,12 +20,18 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
+    - name: use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
     # Runs a single command using the runners shell
     - name: Build
       run: |
-        yarn add,
-        yarn build.
+        yarn 
+        yarn build
       
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
