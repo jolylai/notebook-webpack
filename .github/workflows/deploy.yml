@@ -20,6 +20,8 @@ jobs:
           yarn 
           yarn docs:build
   deploy:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
