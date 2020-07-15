@@ -1,10 +1,11 @@
 ---
-title: 插件
+title: 常用插件
 nav:
   title: 核心概念
   order: 2
 group:
   order: 4
+  title: 插件
 ---
 
 ## html-webpack-plugin
@@ -43,4 +44,20 @@ module.exports = {
     <script src="index_bundle.js"></script>
   </body>
 </html>
+```
+
+## clean-webpack-plugin
+
+```shell
+yarn add clean-webpack-plugin -D
+```
+
+`webpack.config.js` 配置
+
+```js
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+module.exports = {
+  plugins: [new CleanWebpackPlugin()],
+};
 ```

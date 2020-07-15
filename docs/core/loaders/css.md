@@ -1,15 +1,29 @@
 ---
 title: CSS
+order: 2
 ---
 
-## [style-loader](https://github.com/webpack-contrib/style-loader)
-
-将 CSS 注入到 DOM 中
+## CSS 文件处理
 
 安装
 
 ```bash
 yarn add style-loader css-loader -D
+```
+
+- [style-loader](https://github.com/webpack-contrib/style-loader):将 CSS 注入到 DOM 中
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+};
 ```
 
 ### attributes

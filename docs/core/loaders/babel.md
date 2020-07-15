@@ -10,6 +10,28 @@ Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转�
 - 通过 Polyfill 方式在目标环境中添加缺失的特性 (通过 @babel/polyfill 模块)
 - 源码转换 (codemods)
 
+## JSX
+
+安装
+
+```shell
+yarn add @babel/preset-react -D
+```
+
+`@babel/preset-react` 插件集包含以下插件
+
+- `@babel/plugin-syntax-jsx`
+- `@babel/plugin-transform-react-jsx`
+- `@babel/plugin-transform-react-display-name`
+
+配置`.babelrc`
+
+```shell
+{
+  "presets": ["@babel/preset-react"]
+}
+```
+
 ## ES6 转 ES5
 
 我们想使用 ECMAScript 的最新特性，但是旧版本的浏览器不支持 ECMAScript 新特性，这时可以借助 babel 将 ES6 语法转成 ES5 语法

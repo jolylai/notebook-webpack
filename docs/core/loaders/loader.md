@@ -1,5 +1,5 @@
 ---
-title: Loader
+title: loader
 group:
   order: 3
 ---
