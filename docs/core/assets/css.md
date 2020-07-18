@@ -1,4 +1,46 @@
-## CSS 文件处理
+---
+title: CSS
+order: 3
+---
+
+## CSS 文件
+
+```
+├── src
+│   ├── assets
+│   │   └── avatar.png
+│   ├── index.js
+│   ├── style.css
+├── webpack.config.js
+├── package.json
+└── yarn.lock
+```
+
+创建`style.css` 样式文件
+
+```css
+body {
+  background-color: slateblue;
+}
+.avatar {
+  width: 60px;
+  height: 60px;
+}
+```
+
+修改`index.js`，给图片添加 CSS 样式
+
+```js
+import avator from './assets/avatar.png';
+import './style.css';
+
+const img = new Image();
+
+img.src = avator;
+img.classList.add('avatar');
+
+document.body.append(img);
+```
 
 安装
 
@@ -6,12 +48,18 @@
 yarn add style-loader css-loader -D
 ```
 
-- [style-loader](https://github.com/webpack-contrib/style-loader):将 CSS 注入到 DOM 中
+`webpack.config.js`
 
 ```js
 module.exports = {
   module: {
     rules: [
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: {
+          loader: 'file-loader',
+        },
+      },
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
@@ -21,9 +69,11 @@ module.exports = {
 };
 ```
 
-### attributes
+这里使用到了多个 loader ，loader 的执行顺序默认从右到左，即先执行 `css-loader` 在将结果交给`style-loader` 处理
 
-Type: Object Default: {}
+## [style-loader](https://github.com/webpack-contrib/style-loader)
+
+将 CSS 注入到 DOM 中
 
 如果有值，`style-loader` 将会把值赋值到`<style>`或 `<link>` 标签的属性上
 
@@ -50,10 +100,6 @@ module.exports = {
   <style id="id"></style>
 </header>
 ```
-
-### insert
-
-`Type: String|Function Default: head`
 
 默认`style-loader` 会将 打包生成的`<style>` 或 `<link>` 插入到 `<header>`中最后的位置，如果`<header>` 中已经存在`<style>`, `<style>` 中的代码优先级则会低于
 
@@ -140,7 +186,7 @@ module.exports = {
 
 ## [css-loader](https://github.com/webpack-contrib/css-loader)
 
-解析 css 文件中的 `@import` 和 `url()` ，会 `import/require()` 后再解析它们。
+解析 css 文件中的 `@import` 和 `url()` ，如同 `import/require()` 。
 
 ### url
 
@@ -208,8 +254,6 @@ module.exports = {
 };
 ```
 
-这里使用到了多个 loader ，loader 的执行顺序默认从右到左，即先执行 `css-loader` 再执行 `style-loader`
-
 ## less
 
 安装
@@ -234,3 +278,7 @@ module.exports = {
   },
 };
 ```
+
+## postcss
+
+## CSS Module
