@@ -71,7 +71,7 @@ module.exports = {
 
 这里使用到了多个 loader ，loader 的执行顺序默认从右到左，即先执行 `css-loader` 在将结果交给`style-loader` 处理
 
-## [style-loader](https://github.com/webpack-contrib/style-loader)
+### [style-loader](https://github.com/webpack-contrib/style-loader)
 
 将 CSS 注入到 DOM 中
 
@@ -184,11 +184,11 @@ module.exports = {
 
 `style-loader` 通过 `<style>` 标签将`CSS` 注入到`DOM` 中
 
-## [css-loader](https://github.com/webpack-contrib/css-loader)
+### [css-loader](https://github.com/webpack-contrib/css-loader)
 
 解析 css 文件中的 `@import` 和 `url()` ，如同 `import/require()` 。
 
-### url
+**url**
 
 `Type: Boolean|Function Default: true`
 
@@ -221,7 +221,7 @@ module.exports = {
 };
 ```
 
-### import
+**import**
 
 被过滤的 `import`不会被处理（原封不动的输出）
 
@@ -272,7 +272,52 @@ module.exports = {
     rules: [
       {
         test: /\.(css|less)$/i,
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          'less-loader',
+        ],
+      },
+    ],
+  },
+};
+```
+
+## Sass
+
+安装
+
+```bash
+yarn add less sass-loader node-sass sass -D
+```
+
+- `sass-loader`: 将`Sass/SCSS` 文件编译为 `css` 文件
+
+使用
+
+```js
+// webpack.config.js
+
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(css|less)$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          'sass-loader',
+        ],
       },
     ],
   },
