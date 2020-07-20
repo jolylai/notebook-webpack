@@ -3,6 +3,7 @@ title: Loader
 order: 1
 group:
   title: 静态资源
+  order: 1
 ---
 
 `webpack` 默认只能处理`JavaScript` 文件。使用 `loader` 来预处理文件，这允许你打包除 `JavaScript` 之外的任何静态资源。loader 可以使你在 `import` 或"加载"模块时预处理文件，对模块的源代码进行转换。

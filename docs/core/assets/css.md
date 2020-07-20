@@ -254,6 +254,8 @@ module.exports = {
 };
 ```
 
+**CSS Module**
+
 ## less
 
 安装
@@ -326,4 +328,35 @@ module.exports = {
 
 ## postcss
 
-## CSS Module
+给 css 属性加浏览器厂商前缀
+
+```shell
+yarn add postcss-loader autoprefixer -D
+```
+
+根路径下创建`postcss.config.js`
+
+```js
+module.exports = {
+  plugins: [require('autoprefixer')],
+};
+```
+
+`webpack.config.js` 配置
+
+```js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader',
+        ],
+      },
+    ],
+  },
+};
+```
