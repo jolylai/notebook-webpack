@@ -2,7 +2,7 @@
 title: Tree Shaking
 ---
 
-## 介绍
+## 前言
 
 `Tree shaking` 是一个通常用于描述移除 `JavaScript` 上下文中的未引用代码(dead-code) 行为。
 
@@ -10,6 +10,12 @@ title: Tree Shaking
 使用`require` 和 `module.exports` 不支持`Tree shaking`
 
 在现代 `JavaScript` 应用程序中，我们使用模块打包(如 webpack 或 Rollup)将多个 `JavaScript` 文件打包为单个文件时自动删除未引用的代码。这对于准备预备发布代码的工作非常重要，这样可以使最终文件具有简洁的结构和最小化大小。
+
+ES6 module 静态引入，编译时引入
+
+Common 动态引入，执行时引入
+
+只有 ES6 module 才能静态分析，实现 Tree Shaking
 
 ## 配置
 

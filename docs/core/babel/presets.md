@@ -117,3 +117,25 @@ yarn add -D @babel/preset-env @babel/plugin-transform-runtime
   ]
 })
 ```
+
+## JSX
+
+安装
+
+```shell
+yarn add @babel/preset-react -D
+```
+
+`@babel/preset-react` 插件集包含以下插件
+
+- `@babel/plugin-syntax-jsx`
+- `@babel/plugin-transform-react-jsx`
+- `@babel/plugin-transform-react-display-name`
+
+配置`.babelrc`
+
+```shell
+{
+  "presets": ["@babel/preset-react"]
+}
+```

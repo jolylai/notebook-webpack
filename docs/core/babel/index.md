@@ -1,36 +1,37 @@
 ---
-title: Babel
+title: 综述
+order: 1
 ---
 
-## Babel
+[一口（很长的）气了解 babel](https://zhuanlan.zhihu.com/p/43249121)
+
+## 前言
 
 Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。
 
-- 语法转换
+#### 语法转换
+
+```js
+const sum = (a, b) => {
+  return a + b;
+};
+
+var sum = function sum(a, b) {
+  return a + b;
+};
+```
+
 - 通过 Polyfill 方式在目标环境中添加缺失的特性 (通过 @babel/polyfill 模块)
+
+```js
+Promise.resolve(10).then(function(data) {
+  return data;
+});
+```
+
 - 源码转换 (codemods)
 
-## JSX
-
-安装
-
-```shell
-yarn add @babel/preset-react -D
-```
-
-`@babel/preset-react` 插件集包含以下插件
-
-- `@babel/plugin-syntax-jsx`
-- `@babel/plugin-transform-react-jsx`
-- `@babel/plugin-transform-react-display-name`
-
-配置`.babelrc`
-
-```shell
-{
-  "presets": ["@babel/preset-react"]
-}
-```
+## AST
 
 ## ES6 转 ES5
 
