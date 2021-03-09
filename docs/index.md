@@ -20,10 +20,7 @@ footer: Copyright © 2020
 
 ## TODO
 
-- 核心概念
+## 学习资料
 
-  - [ ] Loader
-
-- 高级概念
-
-  - [ ] Tree Shaking
+- [DDFE](https://github.com/DDFE/DDFE-blog)
+- [Webpack](https://webpack.docschina.org/guides/code-splitting/)
