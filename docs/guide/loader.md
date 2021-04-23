@@ -1,10 +1,10 @@
 ---
-title: 介绍
-order: 1
-group:
-  title: Loader
-  order: 1
+title: loader
 ---
+
+## 前言
+
+loader 用于对模块的源代码进行转换。loader 可以使你在 import 或"加载"模块时预处理文件。loader 可以将文件从不同的语言（如 TypeScript）转换为 JavaScript，或将内联图像转换为 data URL。loader 甚至允许你直接在 JavaScript 模块中 import CSS 文件！
 
 `webpack` 默认只能处理`JavaScript` 文件。使用 `loader` 来预处理文件，这允许你打包除 `JavaScript` 之外的任何静态资源。loader 可以使你在 `import` 或"加载"模块时预处理文件，对模块的源代码进行转换。
 

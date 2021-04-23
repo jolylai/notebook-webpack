@@ -1,6 +1,8 @@
 ---
 title: CSS
 order: 3
+group:
+  title: 静态资源打包
 ---
 
 ## CSS 文件
