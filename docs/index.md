@@ -18,9 +18,7 @@ features:
 footer: Copyright © 2020
 ---
 
-## TODO
-
-## 学习资料
+## Referrence
 
 - [DDFE](https://github.com/DDFE/DDFE-blog)
 - [Webpack](https://webpack.docschina.org/guides/code-splitting/)
