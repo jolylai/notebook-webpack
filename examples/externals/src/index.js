@@ -1,3 +1,9 @@
 import { add } from './math';
 
-console.log(add('hello', 'webpack'));
+const result = add([1, 2]);
+
+const div = document.createElement('div');
+
+div.innerText = result;
+
+document.body.appendChild(div);
