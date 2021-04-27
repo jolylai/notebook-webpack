@@ -1,9 +1,5 @@
 const { resolve } = require('path');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-
-console.log('process.cwd(): ', process.cwd());
 
 module.exports = {
   mode: 'development',

@@ -1,5 +1,11 @@
 ---
-title: 懒加载
+title: lazy loading 懒加载
+nav:
+  title: 指南
+  path: /guides
+group:
+  title: 高级概念
+  path: /advance
 ---
 
 ## 前言
@@ -69,16 +75,34 @@ button.onclick = e =>
   });
 ```
 
-删除`/* webpackChunkName: "print" */`从新执行打包
+这段代码会被 webpack 打包成以下代码
 
-```shell
-     Asset       Size  Chunks             Chunk Names
-      0.js  633 bytes       0  [emitted]
-index.html  330 bytes          [emitted]
-   main.js    656 KiB    main  [emitted]  main
+```js
+btn.onclick = function() {
+  __webpack_require__
+    .e('print')
+    .then(__webpack_require__.bind(__webpack_require__, './src/print.js'))
+    .then(module => {
+      const print = module.default;
+
+      print();
+    });
+};
 ```
 
-打包后的`print.js` 变成了`0.js`，
+```js
+__webpack_require__.f = {};
+// This file contains only the entry chunk.
+// The chunk loading function for additional chunks
+__webpack_require__.e = chunkId => {
+  return Promise.all(
+    Object.keys(__webpack_require__.f).reduce((promises, key) => {
+      __webpack_require__.f[key](chunkId, promises);
+      return promises;
+    }, []),
+  );
+};
+```
 
 <Alert>
 注意，在ES6模块上使用import()时，必须引用.default属性，因为它是解析承诺时将返回的实际模块对象。
@@ -91,4 +115,20 @@ button.onclick = async e => {
   );
   print();
 };
+```
+
+```js
+(() => {
+  __webpack_require__.f = {};
+  // This file contains only the entry chunk.
+  // The chunk loading function for additional chunks
+  __webpack_require__.e = chunkId => {
+    return Promise.all(
+      Object.keys(__webpack_require__.f).reduce((promises, key) => {
+        __webpack_require__.f[key](chunkId, promises);
+        return promises;
+      }, []),
+    );
+  };
+})();
 ```

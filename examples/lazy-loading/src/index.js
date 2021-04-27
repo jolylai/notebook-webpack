@@ -9,7 +9,7 @@ function component() {
     import(/* webpackChunkName: "print" */ './print').then(module => {
       const print = module.default;
 
-      print;
+      print();
     });
   };
 
