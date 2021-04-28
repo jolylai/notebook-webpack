@@ -6,7 +6,13 @@ function component() {
   btn.innerText = 'Click Me';
 
   btn.onclick = function() {
-    import(/* webpackChunkName: "print" */ './print').then(module => {
+    // import(/* webpackChunkName: "print" */ './print').then(module => {
+    //   const print = module.default;
+
+    //   print();
+    // });
+
+    import(/* webpackPrefetch: true */ './print').then(module => {
       const print = module.default;
 
       print();
