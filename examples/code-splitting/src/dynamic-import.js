@@ -1,17 +1,13 @@
-function getComponent() {
-  return import(/* webpackPrefetch: true */ 'lodash')
-    .then(({ default: _ }) => {
-      const element = document.createElement('div');
+const getComponent = async () => {
+  const { default: _ } = await import(/* webpackPrefetch: true */ 'lodash');
 
-      element.innerText = _.concat(['Hello', 'Webpack']);
+  const element = document.createElement('div');
+  element.innerText = _.join(['dynamic', 'import'], ' ');
 
-      return element;
-    })
-    .catch(error =>
-      console.log('An error occurred while loading the component', error),
-    );
-}
+  return element;
+};
 
-getComponent().then(compoment => {
-  document.body.appendChild(compoment);
-});
+(async () => {
+  const component = await getComponent();
+  document.body.appendChild(component);
+})();

@@ -8,14 +8,14 @@ module.exports = {
   output: {
     path: resolve(__dirname, 'dist'),
     filename: '[name].[contenthash:8].js',
-    chunkFilename: '[name].[contenthash:8].chunk.js',
-    clean: true,
+    // chunkFilename: '[name].[contenthash:8].chunk.js',
+    // clean: true,
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Caching',
-      template: resolve('./index.html'),
+      // template: resolve('./index.html'),
     }),
   ],
   optimization: {
@@ -25,14 +25,7 @@ module.exports = {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          priority: -10,
           chunks: 'all',
-          reuseExistingChunk: true,
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
         },
       },
     },
