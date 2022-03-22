@@ -1,9 +1,3 @@
-import { add } from './math';
+import { join } from 'lodash';
 
-const result = add([1, 2]);
-
-const div = document.createElement('div');
-
-div.innerText = result;
-
-document.body.appendChild(div);
+console.log(join(['webpack', 'externals'], ' '));
