@@ -7,6 +7,9 @@ module.exports = {
   externals: {
     lodash: '_',
   },
+  optimization: {
+    runtimeChunk: 'single',
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
