@@ -1,4 +1,4 @@
 body{
   /* background-color: aquamarine; */
-  background: url('/assets/svg/webpack.svg');
+  background: url('../../../assets/svg/webpack.svg') no-repeat;
 }
