@@ -1,5 +1,5 @@
 const getComponent = async () => {
-  const { default: _ } = await import(/* webpackPrefetch: true */ 'lodash');
+  const { default: _ } = await import('lodash');
 
   const element = document.createElement('div');
   element.innerText = _.join(['dynamic', 'import'], ' ');

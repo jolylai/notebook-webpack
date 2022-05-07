@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 function component() {
   const btn = document.createElement('button');
 
