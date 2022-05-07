@@ -2,6 +2,8 @@ const HtmWebpackPlugin = require('html-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const yaml = require('yamljs');
+const json5 = require('json5');
 
 module.exports = {
   mode: 'production',
@@ -20,6 +22,30 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'static/[hash][ext][query]',
+        },
+      },
+      {
+        test: /.xml$/,
+        exclude: /node_modules/,
+        use: ['xml-loader'],
+      },
+      {
+        test: /.(csv|tsv)$/,
+        exclude: /node_modules/,
+        use: ['csv-loader'],
+      },
+      {
+        test: /\.yaml$/i,
+        type: 'json',
+        parser: {
+          parse: yaml.parse,
+        },
+      },
+      {
+        test: /.json5$/,
+        type: 'json',
+        parser: {
+          parse: json5.parse,
         },
       },
     ],

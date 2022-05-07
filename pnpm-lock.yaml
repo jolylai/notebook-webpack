@@ -42,8 +42,11 @@ importers:
       babel-loader: ^8.2.5
       css-loader: ^6.7.1
       css-minimizer-webpack-plugin: ^3.4.1
+      csv-loader: ^3.0.3
       mini-css-extract-plugin: ^2.6.0
       style-loader: ^3.3.1
+      xml-loader: ^1.2.1
+      yamljs: ^0.3.0
     devDependencies:
       '@babel/core': registry.npmmirror.com/@babel/core/7.17.10
       '@babel/plugin-transform-runtime': registry.npmmirror.com/@babel/plugin-transform-runtime/7.17.10_@babel+core@7.17.10
@@ -52,8 +55,11 @@ importers:
       babel-loader: registry.npmmirror.com/babel-loader/8.2.5_887a5110397f957d9e06dd05497793db
       css-loader: registry.npmmirror.com/css-loader/6.7.1_webpack@5.72.0
       css-minimizer-webpack-plugin: registry.npmmirror.com/css-minimizer-webpack-plugin/3.4.1_webpack@5.72.0
+      csv-loader: registry.npmmirror.com/csv-loader/3.0.3
       mini-css-extract-plugin: registry.npmmirror.com/mini-css-extract-plugin/2.6.0_webpack@5.72.0
       style-loader: registry.npmmirror.com/style-loader/3.3.1_webpack@5.72.0
+      xml-loader: registry.npmmirror.com/xml-loader/1.2.1
+      yamljs: registry.npmmirror.com/yamljs/0.3.0
 
 packages:
 
@@ -4819,6 +4825,15 @@ packages:
     version: 3.0.11
     dev: true
 
+  registry.npmmirror.com/csv-loader/3.0.3:
+    resolution: {integrity: sha512-JMr83kH2sOFKbRO95fAQV1fLEc1Chx1osJpU7Gd5ZQhmXrsQN479P08sDuyZoO5LMiJ8IsR72Xtl/nSA7rh4Lw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/csv-loader/-/csv-loader-3.0.3.tgz}
+    name: csv-loader
+    version: 3.0.3
+    dependencies:
+      loader-utils: registry.npmmirror.com/loader-utils/2.0.2
+      papaparse: registry.npmmirror.com/papaparse/5.3.2
+    dev: true
+
   registry.npmmirror.com/dashdash/1.14.1:
     resolution: {integrity: sha512-jRFi8UDGo6j+odZiEpjazZaWqEal3w/basFjQHQEwVtZJGDpxbH1MeYluwCS8Xq5wmLJooDlMgvVarmWfGM44g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dashdash/-/dashdash-1.14.1.tgz}
     name: dashdash
@@ -9241,6 +9256,12 @@ packages:
     version: 1.0.11
     dev: true
 
+  registry.npmmirror.com/papaparse/5.3.2:
+    resolution: {integrity: sha512-6dNZu0Ki+gyV0eBsFKJhYr+MdQYAzFUGlBMNj3GNrmHxmz1lfRa24CjFObPXtjcetlOv5Ad299MhIK0znp3afw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/papaparse/-/papaparse-5.3.2.tgz}
+    name: papaparse
+    version: 5.3.2
+    dev: true
+
   registry.npmmirror.com/param-case/3.0.4:
     resolution: {integrity: sha512-RXlj7zCYokReqWpOPH9oYivUzLYZ5vAPIfEmCTNViosC78F8F0H9y7T7gG2M39ymgutxF5gcFEsyZQSph9Bp3A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/param-case/-/param-case-3.0.4.tgz}
     name: param-case
@@ -13353,10 +13374,36 @@ packages:
         optional: true
     dev: true
 
+  registry.npmmirror.com/xml-loader/1.2.1:
+    resolution: {integrity: sha512-3PYzgwxsRHDFawXZ2r//SuIJ77PksRnyRfV6Ke+3c5ArcJsZOrc+kFnzFO8iVu4mcXBkVTzIBotPyv1Y2ufGkQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/xml-loader/-/xml-loader-1.2.1.tgz}
+    name: xml-loader
+    version: 1.2.1
+    dependencies:
+      loader-utils: registry.npmmirror.com/loader-utils/1.4.0
+      xml2js: registry.npmmirror.com/xml2js/0.4.23
+    dev: true
+
   registry.npmmirror.com/xml-name-validator/3.0.0:
     resolution: {integrity: sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/xml-name-validator/-/xml-name-validator-3.0.0.tgz}
     name: xml-name-validator
     version: 3.0.0
+    dev: true
+
+  registry.npmmirror.com/xml2js/0.4.23:
+    resolution: {integrity: sha512-ySPiMjM0+pLDftHgXY4By0uswI3SPKLDw/i3UXbnO8M/p28zqexCUoPmQFrYD+/1BzhGJSs2i1ERWKJAtiLrug==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/xml2js/-/xml2js-0.4.23.tgz}
+    name: xml2js
+    version: 0.4.23
+    engines: {node: '>=4.0.0'}
+    dependencies:
+      sax: registry.npmmirror.com/sax/1.2.4
+      xmlbuilder: registry.npmmirror.com/xmlbuilder/11.0.1
+    dev: true
+
+  registry.npmmirror.com/xmlbuilder/11.0.1:
+    resolution: {integrity: sha512-fDlsI/kFEx7gLvbecc0/ohLG50fugQp8ryHzMTuW9vSa1GJ0XYWKnhsUx7oie3G98+r56aTQIUB4kht42R3JvA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/xmlbuilder/-/xmlbuilder-11.0.1.tgz}
+    name: xmlbuilder
+    version: 11.0.1
+    engines: {node: '>=4.0'}
     dev: true
 
   registry.npmmirror.com/xmlchars/2.2.0:
@@ -13402,6 +13449,16 @@ packages:
     name: yaml
     version: 1.10.2
     engines: {node: '>= 6'}
+    dev: true
+
+  registry.npmmirror.com/yamljs/0.3.0:
+    resolution: {integrity: sha512-C/FsVVhht4iPQYXOInoxUM/1ELSf9EsgKH34FofQOp6hwCPrW4vG4w5++TED3xRUo8gD7l0P1J1dLlDYzODsTQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/yamljs/-/yamljs-0.3.0.tgz}
+    name: yamljs
+    version: 0.3.0
+    hasBin: true
+    dependencies:
+      argparse: registry.npmmirror.com/argparse/1.0.10
+      glob: registry.npmmirror.com/glob/7.2.0
     dev: true
 
   registry.npmmirror.com/yargs-parser/18.1.3:
