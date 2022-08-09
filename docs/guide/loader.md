@@ -2,7 +2,7 @@
 title: loader
 ---
 
-## 前言
+# loader
 
 loader 用于对模块的源代码进行转换。loader 可以使你在 import 或"加载"模块时预处理文件。loader 可以将文件从不同的语言（如 TypeScript）转换为 JavaScript，或将内联图像转换为 data URL。loader 甚至允许你直接在 JavaScript 模块中 import CSS 文件！
 
@@ -73,8 +73,6 @@ import Styles from 'style-loader!css-loader?modules!./styles.css';
 
 选项可以传递查询参数，例如 ?key=value&foo=bar，或者一个 JSON 对象，例如 ?{"key":"value","foo":"bar"}。
 
-<Alert>
 尽可能使用 module.rules，因为这样可以减少源码中的代码量，并且可以在出错时，更快地调试和定位 loader 中的问题。
-</Alert>
 
 [asset-management](https://webpack.js.org/guides/asset-management/)
