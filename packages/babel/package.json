@@ -1,5 +1,5 @@
 {
-  "name": "babel-polyfill",
+  "name": "babel",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,10 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/preset-env": "^7.12.11"
-  },
-  "dependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10"
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.17.10"
   }
 }

@@ -1,15 +1,12 @@
----
-title: 综述
-order: 1
----
-
-[一口（很长的）气了解 babel](https://zhuanlan.zhihu.com/p/43249121)
-
-## 前言
+# 前言
 
 Babel 是一个工具链，主要用于将 ECMAScript 2015+ 版本的代码转换为向后兼容的 JavaScript 语法，以便能够运行在当前和旧版本的浏览器或其他环境中。
 
-#### 语法转换
+- 语法转换
+- 通过 Polyfill 方式在目标环境中添加缺失的特性
+- 源码转换（codemods）
+
+语法转换
 
 ```js
 const sum = (a, b) => {
@@ -31,16 +28,14 @@ Promise.resolve(10).then(function(data) {
 
 - 源码转换 (codemods)
 
-## AST
-
-## ES6 转 ES5
+## 语法转换
 
 我们想使用 ECMAScript 的最新特性，但是旧版本的浏览器不支持 ECMAScript 新特性，这时可以借助 babel 将 ES6 语法转成 ES5 语法
 
 安装依赖
 
 ```bash
-yarn add babel-loader @babel/core -D
+pnpm add babel-loader @babel/core @babel/cli -D
 ```
 
 - `babel-loader` 只是 `babel` 与 `webpack` 的通讯桥梁，这时还需要 `@babel/preset-env` 来进行代码转换
@@ -199,3 +194,7 @@ new _Promise();
   ]
 }
 ```
+
+#### Reference
+
+- [一口（很长的）气了解 babel](https://zhuanlan.zhihu.com/p/43249121)

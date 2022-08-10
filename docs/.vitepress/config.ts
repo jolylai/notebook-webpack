@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
   markdown: {
-    lineNumbers: false,
+    lineNumbers: true,
   },
 });
 
@@ -28,7 +28,19 @@ function getSidebar() {
       items: [
         { text: '快速开始', link: '/guide/getting-start' },
         { text: 'loader', link: '/guide/loader' },
+        { text: 'Vue Cli', link: '/guide/vue-cli' },
       ],
     },
+    {
+      text: '资源管理',
+      items: [
+        { text: 'CSS', link: '/guide/asset-management/css' },
+        // { text: 'Vue Cli', link: '/guide/vue-cli' },
+      ],
+    },
+    // {
+    //   text: 'Babel',
+    //   items: [{ text: 'loader', link: '/guide/babel/index' }],
+    // },
   ];
 }

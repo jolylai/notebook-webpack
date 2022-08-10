@@ -1,10 +1,47 @@
-## 简介
+# CSS
 
-> [mini-css-extract-plugin](https://webpack.docschina.org/plugins/mini-css-extract-plugin/)
+为了在 JavaScript 模块中 import 一个 CSS 文件，你需要安装 `style-loader` 和 `css-loader`
 
-- [ ] publicPath
-- [ ] 文件输出路径
-- [ ] CSS 代码压缩
+```shell
+pnpm add -D style-loader css-loader
+```
+
+在 webpack.config.js 中配置加这些 loader
+
+```javascript{12-16}
+const { resolve } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  mode: 'development',
+  entry: resolve(__dirname, '/src/index.js'),
+  output: {
+    clean: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        exclude: /node-modules/,
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+  plugins: [new HtmlWebpackPlugin({})],
+};
+```
+
+## CSS Modules
+
+## 预处理器
+
+#### less
+
+#### sass
+
+#### postcss
+
+## CSS 代码抽离
 
 将在 js 文件中引入的 css 文件 单独打包到 CSS 文件中
 
@@ -32,8 +69,6 @@ index.html  369 bytes          [emitted]
   main.css   84 bytes    main  [emitted]  main
    main.js   4.42 KiB    main  [emitted]  main
 ```
-
-## 文件输出路径
 
 ```js
 const TerserJSPlugin = require('terser-webpack-plugin');
@@ -226,4 +261,81 @@ module.exports = {
 };
 ```
 
+#### 抽离 CSS
+
+在生产环境中我们需要把 CSS 文件单独抽离出来打包
+
+```shell
+yarn add -D mini-css-extract-plugin
+```
+
+```javascript
+const HtmWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+  mode: 'production',
+  output: {
+    clean: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        exclude: /node-modules/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
+  },
+  plugins: [
+    new HtmWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'static/css/[name].[contenthash:8].css',
+      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+    }),
+  ],
+};
+```
+
+配置类型于 output
+
+#### 压缩 CSS
+
+```shell
+pnpm add -D css-minimizer-webpack-plugin
+```
+
+```javascript
+const HtmWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
+module.exports = {
+  mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        exclude: /node-modules/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+    ],
+  },
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'styles/[contenthash:8].css',
+    }),
+  ],
+};
+```
+
+只在 production 环境下生效
+
 - `filename: "[contenthash].css"` 解决 CSS 文件缓存问题
+- [mini-css-extract-plugin](https://webpack.docschina.org/plugins/mini-css-extract-plugin/)
